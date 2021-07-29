@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BudgetLeftActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Bạn khá là bình thường:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/valueTextViewBudgetLeftActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView11"
+            android:layout_centerHorizontal="true"
+            android:text="GIÁ TRỊ"
+            android:textColor="@color/green"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/underOverTextViewBudgetLeftActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/valueTextViewBudgetLeftActivity"
+            android:layout_centerHorizontal="true"
+            android:text="dưới/trên ngân sách."
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/underOverTextViewBudgetLeftActivity"
+            android:layout_centerHorizontal="true"
+            android:text="Ngân sách của bạn sẽ được đặt lại vào:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/dateTextViewBudgetLeftActivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView14"
+            android:layout_centerHorizontal="true"
+            android:text="NGÀY"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dateTextViewBudgetLeftActivity"
+            android:layout_centerHorizontal="true"
+            android:text="Bạn có thể chi tiêu..."
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/dailyAmountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView16"
+            android:layout_centerHorizontal="true"
+            android:text="Hằng ngày"
+            android:textColor="@color/green"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dailyAmountTextView"
+            android:layout_centerHorizontal="true"
+            android:text="24 giờ một lần,"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/weeklyAmountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView100"
+            android:layout_centerHorizontal="true"
+            android:text="Tuần"
+            android:textColor="@color/green"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView102"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/weeklyAmountTextView"
+            android:layout_centerHorizontal="true"
+            android:text="mỗi tuần,"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/monthlyAmountTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView102"
+            android:layout_centerHorizontal="true"
+            android:text="Tháng"
+            android:textColor="@color/green"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView101"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/monthlyAmountTextView"
+            android:layout_centerHorizontal="true"
+            android:text="mỗi tháng,"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView101"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="và duy trì ngân sách hiện tại của bạn."
+            android:textSize="24sp" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

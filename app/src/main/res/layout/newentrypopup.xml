@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="330dp"
+    android:layout_height="364dp"
+    android:background="@color/lightgray"
+    android:padding="0dp"
+    android:layout_gravity="center">
+    <LinearLayout
+        android:padding="7dp"
+        android:layout_height="48dp"
+        android:layout_width="match_parent">
+    <TextView
+        android:onClick="showInfo"
+        android:id="@+id/txtInfo"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:textColor="@color/white"
+        android:text="!"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:gravity="center"
+        android:layout_gravity="start"
+        android:textSize="18dp"
+        android:background="@drawable/circlebackgroundpink"
+
+        />
+    <TextView
+        android:layout_marginLeft="253dp"
+        android:id="@+id/txtclose"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:textColor="@color/white"
+        android:text="X"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_gravity="end"
+        android:background="@drawable/circlebackgroundpurple"
+
+        />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:text="Tạo khoản chi tiêu mới"
+            android:textStyle="bold"
+            android:textColor="#e6b800"
+            android:gravity="center"
+            android:textSize="26dp"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="7dp">
+            <LinearLayout
+                android:layout_height="40dp"
+                android:layout_width="85dp"
+                >
+
+            <TextView
+                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:text="@string/amount"
+                android:textStyle="bold"
+                android:textColor="@color/black_overlay"
+                android:gravity="center"
+                android:textSize="18dp"
+
+                />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/amountEditText"
+                android:layout_width="190dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:ems="10"
+                android:hint="Ví dụ. 1000000"
+                android:layout_toLeftOf="@+id/vnd"
+                android:inputType="numberSigned|numberDecimal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:id="@+id/vnd"
+                android:textColor="@color/green"
+                android:text="VNĐ"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:gravity="center"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="7dp">
+            <LinearLayout
+                android:layout_height="40dp"
+                android:layout_width="85dp"
+                >
+            <TextView
+                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:text="@string/date"
+                android:textStyle="bold"
+                android:textColor="@color/black_overlay"
+                android:gravity="center"
+                android:textSize="18dp"
+                />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/dateEditText"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+
+                android:ems="10"
+                android:hint="Ngày-tháng-năm"
+                android:inputType="datetime" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_height="40dp"
+                android:layout_width="85dp"
+                >
+
+            <TextView
+                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:text="@string/location"
+                android:textStyle="bold"
+                android:textColor="@color/black_overlay"
+                android:gravity="center"
+                android:textSize="18dp"
+                />
+            </LinearLayout>
+            <EditText
+                android:layout_marginLeft="29dp"
+                android:id="@+id/locationEditText"
+                android:layout_width="251dp"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:hint="Ex. The Supermarket"
+                android:inputType="textShortMessage"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_height="40dp"
+                android:layout_width="85dp"
+                >
+            <TextView
+                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:text="@string/details"
+                android:textStyle="bold"
+                android:textColor="@color/black_overlay"
+                android:gravity="center"
+                android:textSize="18dp"
+                />
+            </LinearLayout>
+            <EditText
+                android:layout_marginLeft="29dp"
+                android:id="@+id/detailsEditText"
+                android:layout_width="267dp"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:hint="Ex. Bananas for new diet"
+                android:inputType="textLongMessage" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="7dp"
+            android:layout_marginBottom="3dp">
+            <LinearLayout
+                android:layout_height="40dp"
+                android:layout_width="85dp"
+                >
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:text="Thẻ"
+                    android:textStyle="bold"
+                    android:textColor="@color/black_overlay"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/tagEditText"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+
+                android:ems="10"
+                android:hint="Ví dụ: Quần áo"
+                android:inputType="textCapWords|textLongMessage" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:paddingLeft="7dp"
+            android:layout_marginBottom="3dp">
+            <LinearLayout
+                android:layout_height="40dp"
+                android:layout_width="85dp"
+                >
+                <TextView
+                    android:layout_height="40dp"
+                    android:layout_width="wrap_content"
+                    android:text="Lặp lại"
+                    android:textStyle="bold"
+                    android:textColor="@color/black_overlay"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    />
+            </LinearLayout>
+
+            <Spinner
+                android:layout_marginTop="8dp"
+                android:id="@+id/repeatSpinner"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:ems="10"
+                android:hint="Ex. Clothing"
+                android:inputType="textCapWords|textLongMessage" />
+        </LinearLayout>
+
+
+
+        <!--
+        android:onClick="showConfirmPopUp"
+        -->
+
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:layout_margin="-16dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:textSize="24sp"
+        app:cardBackgroundColor="#1a66ff">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="26dp"
+            android:text="Tạo mới"
+            android:textColor="#fff"
+            android:textSize="25sp" />
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

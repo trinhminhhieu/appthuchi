@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Sổ thu chi</string>
+    <string name="okay"><u>Đã hiểu</u></string>
+    <string name="amount"><font fgcolor='#8B0000'>*</font>Số tiền</string>
+    <string name="date"><font fgcolor='#8B0000'></font> Ngày</string>
+    <string name="location"><font fgcolor='#8B0000'></font> Địa điểm</string>
+    <string name="details"><font fgcolor='#8B0000'></font> Chi tiết</string>
+    <string name="info">Các trường được đánh dấu bằng <font fgcolor='#8B0000'>*</font> là bắt buộc. \n\nBạn có thể nhập số âm vào trường số tiền, trường này sẽ hoạt động như một mục ghi nợ thay vì một mục nhập tín dụng. \n\nMặc định bây giờ là ngày. \n\nThẻ mặc định là \"Không có thẻ\". Hãy tạo
+    trong hoạt động \"Thẻ\" trước khi sử dụng chúng để tạo mục nhập mới.</string>
+    <string name="about">DigiMoney - Ứng dụng quản lí ngân sách, chi tiêu cá nhân được phát triển bởi MAIANH.\n\n Bảo trợ bởi Hieusoft,LLC
+    </string>
+    <string name="version">Phiên bản ứng dụng 1.0</string>
+    <string name="title"><font fgcolor='#8B0000'>*</font>Tiêu đề</string>
+    <string name="color"><font fgcolor='#8B0000'>*</font>Màu</string>
+
+    <string-array name="times_array">
+        <item>24 Giờ</item>
+        <item>3 Ngày</item>
+        <item>1 Tuần</item>
+        <item>2 Tuần</item>
+        <item>1 Tháng</item>
+        <item>3 Tháng</item>
+        <item>1 Năm</item>
+    </string-array>
+    <string-array name="repeat_array">
+        <item>Không bao giờ</item>
+        <item>Hàng ngày</item>
+        <item>Hàng tuần</item>
+        <item>Hàng tháng</item>
+        <item>Hàng năm</item>
+    </string-array>
+    <string name="title_activity_tag_detail">TagDetailActivity</string>
+</resources>

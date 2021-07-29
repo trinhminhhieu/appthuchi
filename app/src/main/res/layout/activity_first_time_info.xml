@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstTimeInfoActivity">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/budgetEditText"
+        android:layout_centerHorizontal="true"
+        android:text="Bạn muốn đặt lại ngân sách của mình mỗi khi nào?"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/firstNameEditText"
+        android:layout_alignStart="@+id/textView4"
+        android:gravity="center_vertical"
+        android:text="Họ"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lastNameEditText"
+        android:layout_alignStart="@+id/firstNameEditText"
+        android:text="Tên đệm/Tên"
+        android:textSize="18sp" />
+
+    <EditText
+        android:layout_marginBottom="25dp"
+        android:id="@+id/firstNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lastNameEditText"
+        android:layout_centerHorizontal="true"
+        android:ems="15"
+        android:inputType="textCapWords|textPersonName" />
+
+    <EditText
+        android:id="@+id/lastNameEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView5"
+        android:layout_centerHorizontal="true"
+        android:ems="15"
+        android:inputType="textCapWords|textPersonName" />
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/onwardsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:textSize="24sp"
+        app:cardBackgroundColor="#0066ff">
+
+        <TextView
+            android:id="@+id/onwardsButtonTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="25dp"
+            android:text="Làm xong!"
+            android:textColor="#fff"
+            android:textSize="24sp" />
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/radioGroup"
+        android:layout_centerHorizontal="true"
+        android:text="Mục đích của bạn là gì?"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+
+        <RadioButton
+            android:id="@+id/maintainABudgetRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cân đối thu chi"
+            tools:layout_editor_absoluteX="138dp"
+            tools:layout_editor_absoluteY="257dp" />
+
+        <RadioButton
+            android:id="@+id/saveMoneyRadioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tiết kiệm tiền" />
+
+    </RadioGroup>
+
+    <Spinner
+        android:id="@+id/timePeriodSpinner"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView6"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/times_array" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radioGroup"
+        android:layout_centerHorizontal="true"
+        android:text="Bạn muốn ngân sách của mình là bao nhiêu?"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/budgetEditText"
+        android:layout_width="103dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView7"
+        android:layout_centerHorizontal="true"
+        android:ems="15"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/budgetEditText"
+        android:layout_toStartOf="@+id/textView5"
+        android:text="Số tiền"
+        android:textSize="18dp" />
+
+
+</RelativeLayout>

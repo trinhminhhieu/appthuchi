@@ -1,0 +1,13 @@
+Analysis button
+Shows spending as pie chart
+Show this budget's spending, previous budget's spending
+Show previous budgets in a LineChart
+
+Intro screen
+"My goal is to... Save money/maintain a budget"
+Can choose one, highlights.
+Save money, each time a new budget is made, budget decrements.
+
+Show streak whatshot
+Show total days under budget checkcircle
+Show total money saved moneyoff
