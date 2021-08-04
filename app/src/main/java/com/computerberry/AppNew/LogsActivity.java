@@ -17,14 +17,7 @@ import java.util.Date;
 
 public class LogsActivity extends AppCompatActivity {
 
-    /*TODO
-    Show tag on log
-    Edit and delete tags
-    Show tag on tag listview
-    can change tag when editing an entry
-     */
-
-
+//nhật ký ngân sách
     ListView logsListView;
     String[] items;
     String[] amounts;
@@ -75,8 +68,8 @@ public class LogsActivity extends AppCompatActivity {
             }
             colors[i] = rotation[budgetDayNum];
 
-            if (e.get_date().after(new Date(System.currentTimeMillis() - 21600000)) && e.get_date().before(new Date())) { //6 hs in ms and before right now
-                if (e.get_date().after((new Date(System.currentTimeMillis() - 60000)))){ // if entry made after one minute ago
+            if (e.get_date().after(new Date(System.currentTimeMillis() - 21600000)) && e.get_date().before(new Date())) {
+                if (e.get_date().after((new Date(System.currentTimeMillis() - 60000)))){
                     items[i] = (new Date().getTime() - e.get_date().getTime()) / 1000 + " Giây Trước";
                 } else if (e.get_date().after((new Date(System.currentTimeMillis() - 3600000)))) {
                     items[i] = (new Date().getTime() - e.get_date().getTime()) / 1000 / 60 + " Phút Trước";
@@ -95,10 +88,10 @@ public class LogsActivity extends AppCompatActivity {
             }
 
             if (e.get_value() < 0){
-                amounts[i] = "-" + String.format("%.2f", -e.get_value()) + "VNĐ";
+                amounts[i] = "-" + String.format("%,.2f", -e.get_value()) + "VNĐ";
             }
             else {
-                amounts[i] = "+" + String.format("%.2f", e.get_value()) + "VNĐ";
+                amounts[i] = "+" + String.format("%,.2f", e.get_value()) + "VNĐ";
             }
             newBool[i] = (e.get_date().before(new Date()))&&(HomeActivity.now.getTime() - e.get_date().getTime() < 1000 * 60 * 60); //1000ms * 60sec * 60min = 1 Hour
         }

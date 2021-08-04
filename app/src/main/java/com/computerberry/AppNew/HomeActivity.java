@@ -36,6 +36,7 @@ import java.util.Date;
 
 public class HomeActivity extends AppCompatActivity {
 
+    ///giao diện chính của ứng dụng
     Dialog myDialog;
     Dialog infoDialog;
     CardView newEntryCardView;
@@ -107,6 +108,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        //thêm mục nhập mới
         budgetLeftCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -116,7 +118,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-
+//chặn người dùng nhấp vào nhật kí chi tiêu khi chưa tạo ngân sách mới
         logsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -130,6 +132,8 @@ public class HomeActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //xem chi tiết thẻ có sẵn > cho phép
         tagsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,6 +142,8 @@ public class HomeActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
+
+   //chặn người dùng nhấp vào biểu đồ khi chưa thêm mục nhập mới
         analysisCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,6 +157,8 @@ public class HomeActivity extends AppCompatActivity {
 
             }
         });
+
+        //mục cài đặt
         settingsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -160,6 +168,8 @@ public class HomeActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
+
+        //thông tin về app
         aboutCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -171,6 +181,7 @@ public class HomeActivity extends AppCompatActivity {
 
         boolean firstTime = sharedPreferences.getBoolean(FIRST_TIME, true);
 
+        //hướng dẫn khi người dùng lần đầu tiên cài âpp
         if (firstTime) {
             swipe.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                 @Override
@@ -214,6 +225,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    //hien thi popup the muc nhap moi
     public void showPopup(View v){
         TextView txtclose;
         CardView submitButton;
@@ -290,7 +302,7 @@ public class HomeActivity extends AppCompatActivity {
                 else if (amountString.equals("")){
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập số tiền!", Toast.LENGTH_SHORT).show();
                 } else if (!tagTitle.equals("")  && !validTag){
-                    Toast.makeText(getApplicationContext(), "Không có thẻ nào tồn tại với tiêu đề đó!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Vui lòng nhấp vào mục thẻ để thêm hoặc biết thẻ nào có sẵn!", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Float amountFloat = Float.parseFloat(amountString);
@@ -298,7 +310,7 @@ public class HomeActivity extends AppCompatActivity {
 
                     Entry newEntry = new Entry(amountFloat, inputDate, thisTag, repeatSpinner.getSelectedItem().toString(), false);
                     dbHandler.addEntry(newEntry);
-                    Toast.makeText(getApplicationContext(), "Đã thêm mục nhập mới", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Đã thêm mục nhập mới thành công!", Toast.LENGTH_SHORT).show();
                     refresh();
                     myDialog.dismiss();
 
@@ -374,6 +386,8 @@ public class HomeActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    //hien thi ngan sach hien tai
     private void refresh(){
         now = new Date();
         loadThisUser();
@@ -398,19 +412,19 @@ public class HomeActivity extends AppCompatActivity {
         float num = thisUser.getBudget() - amountSpent;
 
         if (num >= 1000){
-            budgetNumTextView.setText( String.format("%.0f", num) + "VNĐ");
+            budgetNumTextView.setText( String.format("%,.0f", num) + "VNĐ");
         }
         else if (num <= -1000){
-            budgetNumTextView.setText("-" + String.format("%.0f", -num)+"VNĐ");
+            budgetNumTextView.setText("-" + String.format("%,.0f", -num)+"VNĐ");
         }
         else if (num > 0){
-            budgetNumTextView.setText( String.format("%.2f", num) + "VNĐ");
+            budgetNumTextView.setText( String.format("%,.2f", num) + "VNĐ");
         }
         else{
-            budgetNumTextView.setText("-" + String.format("%.2f", -num)+ "VNĐ");
+            budgetNumTextView.setText("-" + String.format("%,.2f", -num)+ "VNĐ");
         }
-        if (budgetNumTextView.getText().toString().equals("-$-0.00")){
-            budgetNumTextView.setText("$0.00");
+        if (budgetNumTextView.getText().toString().equals("-0.00VNĐ")){
+            budgetNumTextView.setText("0.00VNĐ");
         }
 
         String underOver = "Dưới ngân sách";
@@ -426,21 +440,23 @@ public class HomeActivity extends AppCompatActivity {
         millisecondsLeft = thisUser.getNextBudgetStartDate().getTime() - now.getTime();
 
         String value = "";
-        if (millisecondsLeft < 60000){ //if there is less than a minute left, show seconds
-            value = String.valueOf(millisecondsLeft/1000) + " giây(s)";
-        } else if (millisecondsLeft < 3600000){ // If there is less than an hour left, show minutes
-            value = String.valueOf(millisecondsLeft/1000/60) + " phút(s)";
-        } else if (millisecondsLeft < 86400000){ //if there is less than a day left, show hours
-            value = String.valueOf(millisecondsLeft/1000/60/60) + " giờ(s)";
-        } else if (millisecondsLeft < 604800000){ //if there is less than a week left, show days
-            value = String.valueOf(millisecondsLeft/1000/60/60/24) + " ngày(s)";
+        if (millisecondsLeft < 60000){
+            value = String.valueOf(millisecondsLeft/1000) + " giây";
+        } else if (millisecondsLeft < 3600000){
+            value = String.valueOf(millisecondsLeft/1000/60) + " phút";
+        } else if (millisecondsLeft < 86400000){
+            value = String.valueOf(millisecondsLeft/1000/60/60) + " giờ";
+        } else if (millisecondsLeft < 604800000){
+            value = String.valueOf(millisecondsLeft/1000/60/60/24) + " ngày";
         } else{ // else show weeks
-            value = String.valueOf(millisecondsLeft/1000/60/60/24/7) + " tuần(s)";
+            value = String.valueOf(millisecondsLeft/1000/60/60/24/7) + " tuần";
         }
 
-        resetTimeLeftEditText.setText("Đặt lại sau " + value);
+        resetTimeLeftEditText.setText("Đặt lại sau " + value + " nữa!");
     }
 
+
+    //lap lai muc
     private void getRepeatEntries(){
         repeatEntryDates.clear();
         for (int i = 0; i < entries.size(); i++){
@@ -494,17 +510,17 @@ public class HomeActivity extends AppCompatActivity {
 
         if (resetTimePeriod.equals("24 Giờ")){
             cal.add(Calendar.DATE, 1);
-        } else if (resetTimePeriod.equals("15 Giây")) {
+        } else if (resetTimePeriod.equals("15 Seconds")) {
             cal.add(Calendar.SECOND, 15);
         } else if (resetTimePeriod.equals("3 Ngày")){
             cal.add(Calendar.DATE, 3);
         } else if (resetTimePeriod.equals("1 Tuần")){
             cal.add(Calendar.DATE, 7);
-        } else if (resetTimePeriod.equals("2 Tuần")){
+        } else if (resetTimePeriod.equals("2 Tuầnn")){
             cal.add(Calendar.DATE, 14);
         } else if (resetTimePeriod.equals("1 Tháng")){
             cal.add(Calendar.MONTH, 1);
-        } else if (resetTimePeriod.equals("3 Tháng")){
+        } else if (resetTimePeriod.equals("3 Thángg")){
             cal.add(Calendar.MONTH, 3);
         } else {
             cal.add(Calendar.YEAR, 1);

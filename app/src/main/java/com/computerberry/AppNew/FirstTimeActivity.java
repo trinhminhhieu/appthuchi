@@ -12,6 +12,7 @@ public class FirstTimeActivity extends AppCompatActivity {
 
     CardView letsGoButton;
 
+    ///nút đã hiểu, chỉ khi lần đầu người dùng cài đặt và mở ứng dụng, lần kế tiếp trở đi sẽ bị ẩn
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +20,7 @@ public class FirstTimeActivity extends AppCompatActivity {
         //fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        //content view must be set after fullscreen
+
         setContentView(R.layout.activity_first_time);
         getSupportActionBar().hide();
 

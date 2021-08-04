@@ -13,6 +13,8 @@ import java.util.Date;
 
 public class MyDBHandler extends SQLiteOpenHelper{
 
+//    //tạo cơ sở dữ liệu cho danh mục-lưu trữ khi người dùng nhập các khoản chi tiêu mới
+
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "entries.db";
     public static final String TABLE_ENTRIES = "entries";
@@ -21,7 +23,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
     public static final String COLUMN_DATE = "_date";
     public static final String COLUMN_REPEAT = "_repeat";
     public static final String COLUMN_HAS_REPEATED = "_repeated";
-//    public static final String COLUMN_DETAILS = "_details";
+    //    public static final String COLUMN_DETAILS = "_details";
 //    public static final String COLUMN_LOCATION = "_location";
     public static final String COLUMN_TAG_ID = "_tag";
     public static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a");
@@ -30,7 +32,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
     public static final DateFormat DATE_FORMAT_NO_TIME_SPACES = new SimpleDateFormat("yyyy MM dd");
     public static final DateFormat DATE_FORMAT_NO_TIME_SLASHES = new SimpleDateFormat("yyyy/MM/dd");
     public static final DateFormat DATE_FORMAT_CALENDAR = new SimpleDateFormat("E MMM dd HH:mm:ss z yyyy");
-    public static final DateFormat DATE_FORMAT_LOGS = new SimpleDateFormat("E, MMM dd - hh:mm a");
+    public static final DateFormat DATE_FORMAT_LOGS = new SimpleDateFormat("d MMMM, y - hh:mm:ss");
     public static final DateFormat DATE_FORMAT_TIME = new SimpleDateFormat("hh:mm a");
 
     public MyDBHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -106,13 +108,14 @@ public class MyDBHandler extends SQLiteOpenHelper{
         db.close();
     }
 
+    //xoa muc
     public void deleteEntry(int entryId){
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM "+ TABLE_ENTRIES + " WHERE " + COLUMN_ID + " = \"" + entryId + "\";");
         db.close();
     }
 
-
+    //chinh sua muc
     public void updateEntry(Entry e){
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("UPDATE " + TABLE_ENTRIES + " SET " +

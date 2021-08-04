@@ -66,6 +66,7 @@ public class TagDetailActivity extends AppCompatActivity {
         }
 
 
+        ///sự kiện nhấp click chỉnh sửa thẻ
         colorPickerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,6 +97,7 @@ public class TagDetailActivity extends AppCompatActivity {
             }
         });
 
+        //
         colorEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -119,9 +121,11 @@ public class TagDetailActivity extends AppCompatActivity {
 
             }
         });
+
         if (thisTag.getId() == DEFAULT_TAG){
             deleteTagSlider.setLocked(true);
         }
+
         deleteTagSlider.setOnSlideCompleteListener(new SlideToActView.OnSlideCompleteListener() {
             @Override
             public void onSlideComplete(@NonNull SlideToActView view) {
@@ -133,6 +137,8 @@ public class TagDetailActivity extends AppCompatActivity {
                 TagDetailActivity.this.finish();
             }
         });
+
+        //sự kiện xóa thẻ
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -157,10 +163,12 @@ public class TagDetailActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
+
+    //chọn một màu mới cho thẻ, màu mặc định đã tạo sẵn
     public void openColorPicker(){
         ColorPicker colorPicker = new ColorPicker(TagDetailActivity.this);
         colorPicker.setDefaultColorButton(mDefaultColor);
-        colorPicker.setTitle("Choose a Tag Color");
+        colorPicker.setTitle("Chọn một màu mới cho thẻ");
         colorPicker.setRoundColorButton(true);
         colorPicker.show();
         colorPicker.setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {

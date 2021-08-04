@@ -51,6 +51,8 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
     public static final int CURRENT_BUDGET_START_DATE = 6;
     public static final int NEXT_BUDGET_DATE = 7;
 
+
+    //danh sách thẻ mặc định không thể xóa
     public static Tag[] defaultTags = {
                             new Tag("9E9E9E", "Khác"),
                             new Tag("9E9E9E", "Thu nhập"),
@@ -62,31 +64,32 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
                             new Tag("795548", "Văn phòng phẩm"),
                             new Tag("795548", "Đỗ xe"),
                             new Tag("795548", "Gas"),
-                            new Tag("4CAF50", "Chuyến bay"),
+                            new Tag("4CAF50", "Vé máy bay"),
                             new Tag("4CAF50", "Tàu hoả"),
                             new Tag("607D8B", "Uber"),
-                            new Tag("009688", "Thuê"),
+                            new Tag("009688", "Thuê nhà"),
                             new Tag("009688", "Tiện ích"),
-                            new Tag("009688", "Nhà trẻ"),
+                            new Tag("009688", "Nước hoa"),
                             new Tag("009688", "Điện thoại"),
                             new Tag("03A9F4", "Sách giáo khoa"),
-                            new Tag("03A9F4", "Học phí"),
+                            new Tag("03A9F4", "Đóng học phí"),
                             new Tag("3F51B5", "Bác sĩ"),
                             new Tag("3F51B5", "Nha sĩ"),
                             new Tag("3F51B5", "Gym"),
                             new Tag("9C27B0", "Tóc"),
-                            new Tag("9C27B0", "Phụ kiện"),
+                            new Tag("9C27B0", "Du lịch"),
                             new Tag("9C27B0", "Quần áo"),
                             new Tag("E91E63", "Sách"),
-                            new Tag("E91E63", "Trò chơi điện tử"),
+                            new Tag("E91E63", "Trò chơi"),
                             new Tag("E91E63", "Phim"),
                             new Tag("E91E63", "Âm nhạc"),
-                            new Tag("E91E63", "Sở thích"),
-                            new Tag("F44336", "Cửa hàng tạp hóa"),
+                            new Tag("E91E63", "Túi xách"),
+                            new Tag("F44336", "Mỹ phẩm"),
                             new Tag("F44336", "Xăng"),
                             new Tag("F44336", "Đồ ăn nhanh"),
-                            new Tag("F44336", "Mua xe"),
+                            new Tag("F44336", "Xe đạp"),
                             new Tag("F44336", "Rượu")};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,7 +121,7 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
 
         if (getIntent().hasExtra("com.computerberry.AppNew.INFO")){
             onwardsButtonTextView.setText("Lưu cài đặt");
-            getSupportActionBar().setTitle("Cài đặt");
+            getSupportActionBar().setTitle("Settings");
 
             try{
                 String message = "";
@@ -159,7 +162,7 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
+        //giao diện cài đặt các tường họ, tên đệm, lựa chọn sử dụng, số tiền ,thời hạn
         onwardsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(final View view) {
@@ -174,27 +177,27 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
                         (saveMoneyRadioButton.isChecked() || maintainABudgetRadioButton.isChecked()) &&
                         !budget.equals("")){
 
-                         try {
-                            FileInputStream fileInputStream = openFileInput("user_info");
-                            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-                            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-                            StringBuffer stringBuffer = new StringBuffer();
-                            while ((m = bufferedReader.readLine()) != null){
-                                stringBuffer.append(m);
-                            }
-                            m = stringBuffer.toString();
+                    try {
+                        FileInputStream fileInputStream = openFileInput("user_info");
+                        InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+                        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                        StringBuffer stringBuffer = new StringBuffer();
+                        while ((m = bufferedReader.readLine()) != null){
+                            stringBuffer.append(m);
+                        }
+                        m = stringBuffer.toString();
 
-                        } catch (FileNotFoundException e) {
-                            e.printStackTrace();
-                        } catch (IOException e){
-                            e.printStackTrace();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e){
+                        e.printStackTrace();
+                    }
+                    if (m.equals("")){
+                        TagDBHandler tagDBHandler = new TagDBHandler(c, null, null, 1);
+                        for (Tag t : defaultTags){
+                            tagDBHandler.addEntry(t);
                         }
-                        if (m.equals("")){
-                            TagDBHandler tagDBHandler = new TagDBHandler(c, null, null, 1);
-                            for (Tag t : defaultTags){
-                                tagDBHandler.addEntry(t);
-                            }
-                        }
+                    }
 
                     //STORE AS:
                     /*
@@ -261,7 +264,7 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
                         FileOutputStream fileOutputStream = openFileOutput(file_name, MODE_PRIVATE);
                         fileOutputStream.write(message.getBytes());
                         fileOutputStream.close();
-                        Snackbar snackbar = Snackbar.make(view, "Thông tin người dùng đã lưu/cập nhật", Snackbar.LENGTH_LONG);
+                        Snackbar snackbar = Snackbar.make(view, "Thông tin đã được lưu/cập nhật thành công!", Snackbar.LENGTH_LONG);
                         View snackbarView = snackbar.getView();
                         TextView sbTextView = (TextView) snackbarView.findViewById(android.support.design.R.id.snackbar_text);
                         sbTextView.setTextColor(getResources().getColor(R.color.green));
@@ -293,7 +296,7 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
 //                    FirstTimeInfoActivity.this.finish();
                 }
                 else{
-                    Snackbar snackbar = Snackbar.make(view, "Một hoặc nhiều trường không hợp lệ!", Snackbar.LENGTH_SHORT);
+                    Snackbar snackbar = Snackbar.make(view, "Các trường không được để trống!", Snackbar.LENGTH_SHORT);
                     snackbar.show();
                 }
 
@@ -301,20 +304,21 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
         });
     }
 
+    //tạo ngày cho ngân sách tiếp theo
     private void createNextBudgetDate(Calendar cal, String resetTimePeriod){
         if (resetTimePeriod.equals("24 Giờ")){
             cal.add(Calendar.DATE, 1);
-        } else if (resetTimePeriod.equals("15 Giây")) {
+        } else if (resetTimePeriod.equals("15 Seconds")) {
             cal.add(Calendar.SECOND, 15);
         } else if (resetTimePeriod.equals("3 Ngày")){
             cal.add(Calendar.DATE, 3);
         } else if (resetTimePeriod.equals("1 Tuần")){
             cal.add(Calendar.DATE, 7);
-        } else if (resetTimePeriod.equals("2 Tuần")){
+        } else if (resetTimePeriod.equals("2 Tuầnn")){
             cal.add(Calendar.DATE, 14);
         } else if (resetTimePeriod.equals("1 Tháng")){
             cal.add(Calendar.MONTH, 1);
-        } else if (resetTimePeriod.equals("3 Tháng")){
+        } else if (resetTimePeriod.equals("3 Thángg")){
             cal.add(Calendar.MONTH, 3);
         } else {
             cal.add(Calendar.YEAR, 1);

@@ -38,6 +38,7 @@ public class TagDBHandler extends SQLiteOpenHelper{
 //        db.close();
 //    }
 
+    //tao bang
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_TAGS + " (" +
@@ -55,6 +56,7 @@ public class TagDBHandler extends SQLiteOpenHelper{
         onCreate(db);
     }
 
+    //them the
     public void addEntry(Tag tag){
 
         ContentValues values = new ContentValues();
@@ -65,12 +67,14 @@ public class TagDBHandler extends SQLiteOpenHelper{
         db.close();
     }
 
+    //xoa the
     public void deleteEntry(int entryId){
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("DELETE FROM "+ TABLE_TAGS + " WHERE " + COLUMN_ID + " = \"" + entryId + "\";");
         db.close();
     }
 
+    //cap nhat the
     public void updateEntry(Tag t){
         SQLiteDatabase db = getWritableDatabase();
         //UPDATE entries SET _id = 123 WHERE _id = 0;

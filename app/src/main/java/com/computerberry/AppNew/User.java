@@ -15,6 +15,7 @@ public class User {
 
 
 
+    //hàm khởi tạo khi mở ứng dụng đầu tiên sẽ yêu cầu người dùng hập họ tên, ngân sách muốn theo dõi chi tiêu, thời gian....
     public User(String first, String last, boolean save, String time, float budget, Date appSetup, Date currentBudgetDate, Date nextBudgetDate){
         firstName = first;
         lastName = last;

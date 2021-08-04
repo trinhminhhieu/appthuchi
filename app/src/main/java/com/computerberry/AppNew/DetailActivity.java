@@ -38,6 +38,7 @@ public class DetailActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_detail);
         getSupportActionBar().hide();
+
         String title;
         final MyDBHandler dbHandler = new MyDBHandler(this, null, null, 1);
         updateButton = (CardView) findViewById(R.id.updateButton);
@@ -85,6 +86,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+        //truot de xoa muc
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,6 +100,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
+        //su kien nhap va giu se popup de chinh sua va cap nhat muc cho the
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

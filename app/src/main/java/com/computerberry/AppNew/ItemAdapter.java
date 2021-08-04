@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 public class ItemAdapter extends BaseAdapter {
+
+
     LayoutInflater mInflater;
     String[] dates;
     String[] amounts;
@@ -16,6 +18,7 @@ public class ItemAdapter extends BaseAdapter {
     Tag[] tags;
     String[] colors;
 
+    //hàm khởi tạo item mới gồm ngày,số tiền,news, thẻ, màu sắc
     public ItemAdapter(Context c, String[] i, String[] p, Boolean[] b, Tag[] t, String[] col){
         dates = i;
         amounts = p;

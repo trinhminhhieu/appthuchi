@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Entry {
 
+    //ham constructor cho để tạo danh mục quản lí chi tiêu mới
     private int _id;
     private Date _date;
     private String _repeat;

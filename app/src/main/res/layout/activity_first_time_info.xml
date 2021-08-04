@@ -7,6 +7,15 @@
     tools:context=".FirstTimeInfoActivity">
 
     <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textSize="42dp"
+        android:layout_marginTop="10dp"
+        android:text="DigiMoney" />
+
+    <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

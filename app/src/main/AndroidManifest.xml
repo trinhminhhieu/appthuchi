@@ -10,62 +10,70 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<!--        <activity android:name=".SplashMaiAnh"></activity>-->
         <activity
-            android:name="com.computerberry.AppNew.MainActivity"
+            android:name=".MainActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.computerberry.AppNew.SecondActivity"
+            android:name=".SecondActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity
-            android:name="com.computerberry.AppNew.SplashScreenActivity"
-            android:configChanges="orientation"
-            android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--        SplashScreenActivity-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".SplashMaiAnh"
+            >
+
+                <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
+
         </activity>
+
         <activity
-            android:name="com.computerberry.AppNew.FirstTimeActivity"
+            android:name=".FirstTimeActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait">
             >
         </activity>
         <activity
-            android:name="com.computerberry.AppNew.FirstTimeInfoActivity"
+            android:name=".FirstTimeInfoActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.computerberry.AppNew.HomeActivity"
+            android:name=".HomeActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.computerberry.AppNew.LogsActivity"
+            android:name=".LogsActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.computerberry.AppNew.DetailActivity"
+            android:name=".DetailActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.computerberry.AppNew.RecordsActivity"
+            android:name=".RecordsActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name="com.computerberry.AppNew.BudgetLeftActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation"/>
-        <activity android:name="com.computerberry.AppNew.TagsActivity"
+        <activity
+            android:name=".BudgetLeftActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.computerberry.AppNew.TagDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TagsActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"/>
-        <activity android:name="com.computerberry.AppNew.AnalysisActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TagDetailActivity"
             android:configChanges="orientation"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AnalysisActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

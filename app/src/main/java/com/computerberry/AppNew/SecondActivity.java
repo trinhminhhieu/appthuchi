@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 public class SecondActivity extends AppCompatActivity {
 
+    //sự kiện nhấp chuột tại trang thông tin về app> sẽ chuyển hướng người dùng đến liên kết đã chèn vào button
 
     CardView websiteButton;
     CardView githubButton;
@@ -43,6 +44,7 @@ public class SecondActivity extends AppCompatActivity {
             }
         });
 
+        //chuyển hướng đến website> nút Website
         websiteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +56,8 @@ public class SecondActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //chuyern hướng app store> nút Ios
         githubButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +69,8 @@ public class SecondActivity extends AppCompatActivity {
                 }
             }
         });
+
+        //chuyern huong đến goohle play > nút Android
         GPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

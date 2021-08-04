@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 public class SliderAdapter extends PagerAdapter {
 
+    // dành cho trường hợp tiết kiệm- tính năng này chưa khả dụng-chỉ giành cho pro
     Context context;
     LayoutInflater layoutInflater;
 

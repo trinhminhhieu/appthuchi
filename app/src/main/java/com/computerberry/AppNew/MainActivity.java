@@ -9,12 +9,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    /*TODO
-    Show how much to maintain budget for:
-    Daily Spending
-    Weekly Spending
-    Monthly Spending
-     */
 
 
     Button addButton;
@@ -48,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         welcomeTextView = (TextView) findViewById(R.id.welcomeTextView);
         //endregion
 
-        //print the info in the SQLite table upon creating activity
+        //in thông tin từ bảng SQLite
         printDatabase();
 
         String firstName = HomeActivity.thisUser.getFirstName();

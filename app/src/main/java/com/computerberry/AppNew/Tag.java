@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Tag {
 
+    //hiển thi danh sach thẻ- hàm khởi tạo constructor
     private int _id;
     private String _col;
     private String _text;

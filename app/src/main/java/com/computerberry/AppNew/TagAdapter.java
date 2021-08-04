@@ -16,7 +16,7 @@ public class TagAdapter extends BaseAdapter {
 
     public TagAdapter(Context c, String[] cols, String[] tits, Boolean[] defs){
         colors = cols;
-        titles = tits; //lol
+        titles = tits;
         defaults = defs;
         mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }

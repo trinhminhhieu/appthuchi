@@ -1,7 +1,7 @@
 package com.computerberry.AppNew;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -10,6 +10,8 @@ import java.util.Date;
 
 public class BudgetLeftActivity extends AppCompatActivity {
 
+
+    //chi tiết ngân sách, cho biết các khoản chi tiêu có trên hay dưới ngân sách hhay không> nhấp vào số ngân sách hiện tại
     TextView budgetLeftTextView;
     TextView dailyAmountTextView;
     TextView weeklyAmountTextView;
@@ -44,46 +46,54 @@ public class BudgetLeftActivity extends AppCompatActivity {
         textView102.setTextColor(getResources().getColor(R.color.darkSeaGreen));
 
         dateTextView = (TextView) findViewById(R.id.dateTextViewBudgetLeftActivity);
+
+
         Float remaining = HomeActivity.thisUser.getBudget() - HomeActivity.amountSpent;
-        if (remaining < 0){
-            budgetLeftTextView.setText(String.format("%.2f", -remaining)+"VNĐ");
+
+        //phân tách số tiền ,thêm 2 số 0 VD 10000000 thì 10,000,000.00
+        if (remaining < 0) {
+            //cho biết khi số tiền chi tiêu có vượt quá ngân sách hiện có hay không
+            budgetLeftTextView.setText(String.format("%,.0f", -remaining) + "VNĐ");
             budgetLeftTextView.setTextColor(getResources().getColor(R.color.deficit));
             underOverTextView.setText("trên ngân sách.");
-        }
-        else{
-            budgetLeftTextView.setText(String.format("%.2f", remaining)+"VNĐ");
+        } else {
+            ///cho biết khi số tiền chi tiêu có vượt quá ngân sách hiện có hay không
+            budgetLeftTextView.setText(String.format("%,.0f", remaining) + "VNĐ");
             budgetLeftTextView.setTextColor(getResources().getColor(R.color.green));
             underOverTextView.setText("dưới ngân sách.");
         }
+
         dateTextView.setText(MyDBHandler.DATE_FORMAT_LOGS.format(HomeActivity.thisUser.getNextBudgetStartDate()));
-        float daysLeftInBudget = (float) Math.ceil(( HomeActivity.thisUser.getNextBudgetStartDate().getTime() - new Date().getTime())/1000.0/60.0/60.0/24.0);
+        float daysLeftInBudget = (float) Math.ceil((HomeActivity.thisUser.getNextBudgetStartDate().getTime() - new Date().getTime()) / 1000.0 / 60.0 / 60.0 / 24.0);
         String timePeriod = HomeActivity.thisUser.getTimePeriod();
-        if (timePeriod.equals("1 Năm") || timePeriod.equals("3 Tháng")){
-            monthlyAmountTextView.setText(String.format("%.2f", remaining/daysLeftInBudget * 30) +"VNĐ");
+
+        if (timePeriod.equals("1 Năm") || timePeriod.equals("3 Thángg")) {
+            monthlyAmountTextView.setText(String.format("%,.0f", remaining / daysLeftInBudget * 30) + "VNĐ");
             monthlyAmountTextView.setTextColor(getResources().getColor(R.color.green));
-        }
-        else{
+        } else {
             monthlyAmountTextView.setText("N/A");
             monthlyAmountTextView.setTextColor(getResources().getColor(R.color.colorAccent));
         }
-        if (timePeriod.equals("1 Năm") || timePeriod.equals("3 Tháng") || timePeriod.equals("1 Tháng")  || timePeriod.equals("2 Tuần")){
-            weeklyAmountTextView.setText(String.format("%.2f", remaining/daysLeftInBudget * 7)+"VNĐ");
+
+        if (timePeriod.equals("1 Năm") || timePeriod.equals("3 Thángg") || timePeriod.equals("1 Tháng") || timePeriod.equals("2 Tuầnn")) {
+            weeklyAmountTextView.setText(String.format("%,.0f", remaining / daysLeftInBudget * 7) + "VNĐ");
             weeklyAmountTextView.setTextColor(getResources().getColor(R.color.green));
-        }
-        else{
+        } else {
             weeklyAmountTextView.setText("N/A");
             weeklyAmountTextView.setTextColor(getResources().getColor(R.color.colorAccent));
         }
-        if (!timePeriod.equals("24 giờ") && !timePeriod.equals("15 Giây")){
-            dailyAmountTextView.setText(String.format("%.2f", remaining/daysLeftInBudget * 1)+"VNĐ");
+        //chi tieu 24 giờ một lần
+        if (!timePeriod.equals("24 Giờ") && !timePeriod.equals("15 Seconds")) {
+            //remaining = 10,000,000/dáyLeftInBudgert
+            dailyAmountTextView.setText(String.format("%,.0f", remaining / daysLeftInBudget * 1) + " VNĐ");
             dailyAmountTextView.setTextColor(getResources().getColor(R.color.green));
-        }
-        else{
+        } else {
             dailyAmountTextView.setText("N/A");
             dailyAmountTextView.setTextColor(getResources().getColor(R.color.colorAccent));
         }
 
     }
+
     @Override
     public void finish() {
         super.finish();

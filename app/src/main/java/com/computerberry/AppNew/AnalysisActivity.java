@@ -35,6 +35,7 @@ public class AnalysisActivity extends AppCompatActivity {
 
     }
 
+    //biểu đồ chi tiêu lấy từ mã nguồn mở com.github.PhilJay:MPAndroidChart:v3.0.3
     private void setupPieChart(){
         //Populate a list of pieEntries
         List<PieEntry> pieEntries = new ArrayList<>();
@@ -62,7 +63,7 @@ public class AnalysisActivity extends AppCompatActivity {
         dataSet.setSliceSpace(3);
         PieData data = new PieData(dataSet);
 
-        //Get the chart
+        //xuất dữ liệu ra biểu đồ
         pieChart = (PieChart) findViewById(R.id.pieChart);
         pieChart.setData(data);
         pieChart.setCenterText("Tổng chi tiêu của bạn");
