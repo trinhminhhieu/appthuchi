@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().setTitle("DigiMoney\\MainActivity");
 
-        //region referencesToIds
+        //tham chiếu vùng
 
         removeButton = (Button) findViewById(R.id.removeButton);
         inputEditText = (EditText) findViewById(R.id.amountEditText);
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         previouslyInitTextView = (TextView) findViewById(R.id.previouslyInitTextView);
         previouslyInitButton = (Button) findViewById(R.id.previouslyInitButton);
         welcomeTextView = (TextView) findViewById(R.id.welcomeTextView);
-        //endregion
+        //end tham chiếu vùng
 
         //in thông tin từ bảng SQLite
         printDatabase();
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         removeButton.setEnabled(false);
 
-        //region Button Onclicks
+        //khu vực Nút Khi nhấp chuột
 
         removeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,11 +72,14 @@ public class MainActivity extends AppCompatActivity {
 
     } // end of onCreate
 
+    //in cơ sử dữ liệu
     public void printDatabase(){
         String dbString = dbHandler.databaseToString();
         resultsTextView.setText(dbString);
         inputEditText.setText("");
     }
+
+    //hoàn thành > finish đóng
     @Override
     public void finish() {
         super.finish();

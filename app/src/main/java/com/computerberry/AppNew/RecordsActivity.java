@@ -13,6 +13,8 @@ import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
 
 public class RecordsActivity extends AppCompatActivity {
 
+
+    //lấy từ layout activity_records.xml chế độ ngủ
     private ViewPager mSlideViewPager;
     private LinearLayout mDotsLayout;
 

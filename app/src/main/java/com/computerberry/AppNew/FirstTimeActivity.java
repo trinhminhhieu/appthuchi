@@ -12,7 +12,8 @@ public class FirstTimeActivity extends AppCompatActivity {
 
     CardView letsGoButton;
 
-    ///nút đã hiểu, chỉ khi lần đầu người dùng cài đặt và mở ứng dụng, lần kế tiếp trở đi sẽ bị ẩn
+    ///nút đã hiểu, chỉ khi lần đầu người dùng cài đặt và mở ứng dụng, lần kế tiếp trở đi sẽ bị ẩn>
+    // //chỉ khả dụng khi cài lại app
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

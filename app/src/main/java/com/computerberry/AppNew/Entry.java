@@ -3,6 +3,7 @@ package com.computerberry.AppNew;
 
 import java.util.Date;
 
+//lớp Entry dùng tạo các hàm khởi tạo
 public class Entry {
 
     //ham constructor cho để tạo danh mục quản lí chi tiêu mới

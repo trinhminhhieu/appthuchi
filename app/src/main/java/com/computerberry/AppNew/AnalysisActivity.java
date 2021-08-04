@@ -18,6 +18,7 @@ import java.util.List;
 
 public class AnalysisActivity extends AppCompatActivity {
 
+    //biểu đồ phân tích các khoản chi tiêu
     PieChart pieChart;
 
     ConstraintLayout myLayout;

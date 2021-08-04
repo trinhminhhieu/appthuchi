@@ -14,7 +14,8 @@ import java.io.InputStreamReader;
 
 public class SplashMaiAnh extends AppCompatActivity {
 
-    private final int SLEEP_TIMER = 8000;
+    //giao diện khi mở ứng dụng
+    private final int SLEEP_TIMER = 8000; //thời gian chờ 8 giây
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class SplashMaiAnh extends AppCompatActivity {
         public void run() {
             String message = "";
 
+            //thử-bắt lỗi
             try {
                 FileInputStream fileInputStream = openFileInput("user_info");
                 InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
@@ -50,7 +52,7 @@ public class SplashMaiAnh extends AppCompatActivity {
 
 
             try {
-                Thread.sleep(SLEEP_TIMER);
+                Thread.sleep(SLEEP_TIMER); //thời gian ngủ sau 8 giây
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -58,15 +60,16 @@ public class SplashMaiAnh extends AppCompatActivity {
             Intent startIntent;
 
             if (message.equals("")) {
-                 startIntent = new Intent(SplashMaiAnh.this, FirstTimeActivity.class);
+                 startIntent = new Intent(SplashMaiAnh.this, FirstTimeActivity.class); //nếu lỗi trả về giao diện lỗi
 
             } else {
-                 startIntent = new Intent(SplashMaiAnh.this, HomeActivity.class);
+                 startIntent = new Intent(SplashMaiAnh.this, HomeActivity.class);  //nếu k có vấn đề gì trở lại trang chủ
             }
 
 
             startActivity(startIntent);
-            SplashMaiAnh.this.finish(); //pha huy activity> back k hoat dong
+            SplashMaiAnh.this.finish(); //pha huy activity> back k hoat dong để ngăn splash chạy lại>
+            ///// chỉ khi người dùng đóng app thì lần tiếp theo khi mở splash sẽ lại chạy
         }
     }
 }

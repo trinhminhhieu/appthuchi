@@ -13,7 +13,7 @@ import java.util.Date;
 
 public class MyDBHandler extends SQLiteOpenHelper{
 
-//    //tạo cơ sở dữ liệu cho danh mục-lưu trữ khi người dùng nhập các khoản chi tiêu mới
+//    //tạo cơ sở dữ liệu cho danh mục-lưu trữ khi người dùng nhập các khoản chi tiêu mới vào sqlite
 
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "entries.db";
@@ -39,6 +39,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
         super(context, DATABASE_NAME, factory, DATABASE_VERSION);
     }
 
+    //kiểm tra và cập nhật bảng dữ liệu
     public void checkAndUpdateTable(){
         SQLiteDatabase db = getWritableDatabase();
         if (!isFieldExist(db, "entries", "_repeat")){
@@ -52,6 +53,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
         db.close();
     }
 
+    //nếu đã trường tồn tại trong database trả về lỗi
     public boolean isFieldExist(SQLiteDatabase db, String tableName, String fieldName)
     {
         boolean isExist = false;
@@ -75,6 +77,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
         return isExist;
     }
 
+    //tạo bảng dữ liệu mới
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_ENTRIES + " (" +
@@ -95,6 +98,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
         onCreate(db);
     }
 
+    //thêm  mục mới
     public void addEntry(Entry entry){
 
         ContentValues values = new ContentValues();
@@ -129,6 +133,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
     }
 
 
+    ///tìm nạp các mục nhập cơ sở dữ liệu
     public void fetchDatabaseEntries(){
         SQLiteDatabase db = getWritableDatabase();
         String query = "SELECT * FROM " + TABLE_ENTRIES + ";";

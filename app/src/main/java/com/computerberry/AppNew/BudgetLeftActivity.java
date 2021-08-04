@@ -31,6 +31,7 @@ public class BudgetLeftActivity extends AppCompatActivity {
         setContentView(R.layout.activity_budget_left);
         getSupportActionBar().hide();
 
+        //lấy từ activity_budget_left.xml > giao diện hiển thị số tiền có thể sử dụng hàng ngày,hàng tuần,năm
         budgetLeftTextView = (TextView) findViewById(R.id.valueTextViewBudgetLeftActivity);
         dailyAmountTextView = (TextView) findViewById(R.id.dailyAmountTextView);
         weeklyAmountTextView = (TextView) findViewById(R.id.weeklyAmountTextView);
@@ -63,6 +64,7 @@ public class BudgetLeftActivity extends AppCompatActivity {
             underOverTextView.setText("dưới ngân sách.");
         }
 
+        //hiển thị ngày, thay thế bởi id TewtView dateTextView
         dateTextView.setText(MyDBHandler.DATE_FORMAT_LOGS.format(HomeActivity.thisUser.getNextBudgetStartDate()));
         float daysLeftInBudget = (float) Math.ceil((HomeActivity.thisUser.getNextBudgetStartDate().getTime() - new Date().getTime()) / 1000.0 / 60.0 / 60.0 / 24.0);
         String timePeriod = HomeActivity.thisUser.getTimePeriod();

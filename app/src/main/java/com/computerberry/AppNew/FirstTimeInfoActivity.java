@@ -208,7 +208,7 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
                      */
                     float budgetFloat = Float.parseFloat(budget);
 
-                    if (m.equals("")){ //THIS IS THE FIRST TIME THISUSER IS BEING CREATED
+                    if (m.equals("")){ //ĐÂY LÀ LẦN ĐẦU TIÊN NGƯỜI DÙNG NÀY ĐƯỢC TẠO
                         Date nextBudgetDate = new Date();
                         Calendar cal = Calendar.getInstance();
                         cal.setTime(nextBudgetDate);
@@ -217,7 +217,7 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
 
                         HomeActivity.thisUser = new User(firstName, lastName, saveMoneyRadioButton.isChecked(), resetTimePeriod, budgetFloat, new Date(), new Date(), nextBudgetDate);
                     }
-                    else{ //THIS USER HAS BEEN PREVIOUSLY CREATED
+                    else{ ///NGƯỜI DÙNG NÀY ĐÃ ĐƯỢC TẠO TRƯỚC
                         String[] mArray = m.split(",");
                         if (!budget.equals(mArray[BUDGET]) || !resetTimePeriod.equals(mArray[BUDGET_RESET])){ //IF there is a change between this budget and last budget
                             Date nextBudgetDate = new Date();
@@ -259,6 +259,7 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
                             HomeActivity.thisUser.getCurrentBudgetStartDate() + "," +
                             HomeActivity.thisUser.getNextBudgetStartDate();
 
+                    //thử- bắt lỗi xem ng dùng đã nhập hợp lệ hay không để lưu
                     String file_name = "user_info";
                     try {
                         FileOutputStream fileOutputStream = openFileOutput(file_name, MODE_PRIVATE);
@@ -304,7 +305,7 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
         });
     }
 
-    //tạo ngày cho ngân sách tiếp theo
+    //chọn  ngày cho ngân sách để tính toán số tiền mỗi ngày, mỗi tuần, mõi năm có thể chi tiêu
     private void createNextBudgetDate(Calendar cal, String resetTimePeriod){
         if (resetTimePeriod.equals("24 Giờ")){
             cal.add(Calendar.DATE, 1);
@@ -339,6 +340,7 @@ public class FirstTimeInfoActivity extends AppCompatActivity {
         }
     }
 
+    //kiểm tra thử nghiệm
     public static void main(String[] args){
         ArrayList<Tag> t = new ArrayList<>();
 

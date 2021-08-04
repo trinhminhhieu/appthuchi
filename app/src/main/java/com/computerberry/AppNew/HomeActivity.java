@@ -54,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
     SwipeRefreshLayout swipe;
     Long millisecondsLeft;
 
-
+//mảng và các biến
     ArrayList<Entry> repeatEntryDates = new ArrayList<>();
     public static ArrayList<Entry> entries = new ArrayList<>();
     public static ArrayList<Tag> tags = new ArrayList<>();
@@ -181,7 +181,7 @@ public class HomeActivity extends AppCompatActivity {
 
         boolean firstTime = sharedPreferences.getBoolean(FIRST_TIME, true);
 
-        //hướng dẫn khi người dùng lần đầu tiên cài âpp
+        //hướng dẫn khi người dùng lần đầu tiên cài app
         if (firstTime) {
             swipe.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                 @Override
@@ -225,7 +225,7 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-    //hien thi popup the muc nhap moi
+    //hien thi popup để nhập khoản chi mới bao gồm số tiền, tên thẻ, màu,ngày
     public void showPopup(View v){
         TextView txtclose;
         CardView submitButton;
@@ -256,7 +256,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String tagTitle = tagEditText.getText().toString();
-                Tag thisTag = tags.get(0); // "No Tag" tag
+                Tag thisTag = tags.get(0); // "không thẻ" tag
                 boolean validTag = false;
                 for (int i = 0; i < tags.size(); i++){
                     if (tags.get(i).getText().toLowerCase().equals(tagTitle.toLowerCase())){
@@ -269,6 +269,8 @@ public class HomeActivity extends AppCompatActivity {
                 String amountString =  amountEditText.getText().toString();
                 Boolean canParse = false;
                 Date inputDate = new Date();
+
+                //kiểm tra các giá trị và chèn vào sqlite từ lớp MyDBHandler.java
                 if (!dateEditText.getText().toString().equals("")){
                     try {
                         inputDate = MyDBHandler.DATE_FORMAT_NO_TIME.parse(dateEditText.getText().toString());

@@ -17,7 +17,7 @@ import java.util.Date;
 
 public class LogsActivity extends AppCompatActivity {
 
-//nhật ký ngân sách
+//lớp nhật ký ngân sách
     ListView logsListView;
     String[] items;
     String[] amounts;
@@ -42,7 +42,7 @@ public class LogsActivity extends AppCompatActivity {
 
         logsListView = (ListView) findViewById(R.id.logsListView);
 
-        //Populate Arrays
+        //Điền mảng
         int numEntries = HomeActivity.entries.size();
 
         items = new String[numEntries];
@@ -52,6 +52,8 @@ public class LogsActivity extends AppCompatActivity {
         colors = new String[numEntries];
         ArrayList<Entry> entries = HomeActivity.entries;
         Collections.reverse(entries);
+
+        //vòng lặp danh mục
         for (int i = 0; i < numEntries; i++){
             Entry e = entries.get(i);
             tags[i] = e.get_tag();

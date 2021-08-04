@@ -22,6 +22,7 @@ import java.util.Date;
 
 public class DetailActivity extends AppCompatActivity {
 
+    //chi tiết khoản chi tiêu trong nhật kí, khi nhấp vào nó sẽ có lựa chọn sửa, xóa mục
     TextView detailActivityTextView;
     CardView updateButton;
     EditText amountEditTextDetailActivity;
@@ -74,6 +75,8 @@ public class DetailActivity extends AppCompatActivity {
             }
         }
 
+
+        //thanh trượt xóa
         deleteSlider.setOnSlideCompleteListener(new SlideToActView.OnSlideCompleteListener() {
             @Override
             public void onSlideComplete(@NonNull SlideToActView view) {
@@ -86,7 +89,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-        //truot de xoa muc
+        //sự kiện nhấp và trượt de xoa muc
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -100,7 +103,7 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-        //su kien nhap va giu se popup de chinh sua va cap nhat muc cho the
+        //su kien nhap để lưu chinh sua va cap nhat muc cho the
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -136,7 +139,7 @@ public class DetailActivity extends AppCompatActivity {
                     }
                 }
 
-                if (!t.getText().equals(tagEditTextDetailActivity.getText().toString())){ //if the inputted tag is different
+                if (!t.getText().equals(tagEditTextDetailActivity.getText().toString())){ //nếu thẻ đã nhập khác
                     boolean validTag = false;
                     String tagTitle = tagEditTextDetailActivity.getText().toString();
                     for (int i = 0; i < HomeActivity.tags.size(); i++){
@@ -155,9 +158,12 @@ public class DetailActivity extends AppCompatActivity {
                         return;
                     }
                 }
+
+                //nếu ngày k hợp lệ
                 if (!dateEditTextDetailActivity.getText().toString().equals("") && !canParse){
                     Toast.makeText(getApplicationContext(), "Không thể phân tích cú pháp ngày!", Toast.LENGTH_SHORT).show();
                 }
+                //nếu ngân sách trống> k hợp lệ
                 else if (amountString.equals("")){
                     Toast.makeText(getApplicationContext(), "Vui lòng nhập ngân sách!", Toast.LENGTH_SHORT).show();
                 }
@@ -184,6 +190,7 @@ public class DetailActivity extends AppCompatActivity {
 
     }
 
+    //tải lại,Làm tươi dữ liệu
     public void refresh(){
         Intent in = getIntent();
         int index = in.getIntExtra("com.computerberry.AppNew.ITEM_INDEX", -1);
